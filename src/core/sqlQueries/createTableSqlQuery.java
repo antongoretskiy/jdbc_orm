@@ -37,7 +37,10 @@ public class createTableSqlQuery implements sqlQuery {
             
             query += ",\n";
             query += "PRIMARY KEY(";
-            query = tblModel.primaryKeys.stream().map((column) -> column.getName() + ", ").reduce(query, String::concat);
+            for(DbTblColumnModel column :tblModel.columns)
+            {
+                query += column.getName() + ", ";
+            }
             query = query.substring(0,query.length() - 2);
             query += ")";
         }
