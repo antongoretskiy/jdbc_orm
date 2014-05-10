@@ -37,7 +37,7 @@ public class createTableSqlQuery implements sqlQuery {
             
             query += ",\n";
             query += "PRIMARY KEY(";
-            for(DbTblColumnModel column :tblModel.columns)
+            for(DbTblColumnModel column :tblModel.primaryKeys)
             {
                 query += column.getName() + ", ";
             }
